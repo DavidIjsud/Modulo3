@@ -1,0 +1,76 @@
+    1  ls -l
+    2  clear
+    3  mkdir -p myCA/signedcerts
+    4  mkdir -p myCA/private
+    5  ls -l
+    6  cd myCA/
+    7  ls -l
+    8  echo '01' > serial 
+    9  touch index.txt 
+   10  ls -l
+   11  vi caconfig.cnf 
+   12  cd //home
+   13  ls -l
+   14  cd myCA
+   15  vi  caconfig.cnf 
+   16  export OPENSSL_CONF=/home/user1/myCA/caconfig.cnf 
+   17  env
+   18  clear
+   19  env |grep OPE
+   20  ls -l $OPENSSL_CONF
+   21  openssl req -x509 -newkey rsa:2048 -out cacert.pem -outform PEM -days 365
+   22  ls -l
+   23  ls -l private/
+   24  cat cacert.pem
+   25  cat private/cakey.pem 
+   26  clear
+   27  vi  caconfig.cnf 
+   28  ls -l
+   29  ls -l 
+   30  history 
+   31  clear
+   32  openssl rsa -in private/cakey.pem -text 
+   33  cat private/cakey.pem 
+   34  clear
+   35  openssl rsa -modulos -noout -in private/cakey.pem 
+   36  openssl rsa -modulus -noout -in private/cakey.pem 
+   37  openssl rsa -checks -noout -in private/cakey.pem 
+   38  openssl rsa -check -noout -in private/cakey.pem 
+   39  clear
+   40  openssl x509 -in  cacert.pem -out cacert.crt
+   41  ls -l cacert.*
+   42  diff cacert.crt cacert.pem 
+   43  openssl rsa -in cacert.pem -text
+   44  openssl x509 -in cacert.pem -text
+   45  clear
+   46  vi myhost.cnf
+   47  export OPENSSL_CONF=/home/user1/myCA/myhost.cnf 
+   48  openssl req -newkey rsa:2048 -keyout myhost.pem -keyform PEM -out myhosrreq.pem -outform PEM 
+   49  ls -l
+   50  cat myhosrreq.pem
+   51  clear
+   52  export OPENSSL_CONF=/home/jorge/myCA/caconfig.cnf
+   53  openssl ca -in myhosrreq.pem -out myhost_crt.pem 
+   54  export OPENSSL_CONF=/home/user1/myCA/caconfig.cnf
+   55  openssl ca -in myhosrreq.pem -out myhost_crt.pem 
+   56  ls -l 
+   57  cat index.txt
+   58  cat serial
+   59  ls -l 
+   60  ls -l signedcerts/
+   61  cat signedcerts/01.pem 
+   62  ls -l
+   63  cat myhost_crt.pem
+   64  ls -l
+   65  cat myhost.pem
+   66  cat myhost.pem myhost_crt.pem 
+   67  clear
+   68  openssl s_client -showcerts -connet soe.uagrm.edu.bo:443
+   69  openssl s_client -showcerts -connect soe.uagrm.edu.bo:443
+   70  openssl s_client   -connect soe.uagrm.edu.bo:443
+   71  openssl s_client -showcerts -connect upds.edu.bo:443
+   72  clear
+   73  openssl s_client -showcerts -connect upds.edu.bo:443 |less
+   74  vi caconfig.cnf 
+   75  history 
+   76  history > history.txt

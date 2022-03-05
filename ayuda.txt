@@ -1,0 +1,109 @@
+Ayuda memoria para la creación de un CA root y el firmado de un certificado 
+
+Para asegurarnos que tenemos instalado openssl 
+
+openssl speed
+
+Creamos unos directorios (repositorio)
+
+mkdir -p myCA/signedcerts
+
+mkdir -p myCA/private
+
+cd myCA/
+
+ls -l
+
+Adicionamos dos archivos más 
+
+echo '01' > serial
+
+touch index.txt
+
+Creamos un archivo de configuración (ver ejemplo)
+
+vim caconfig.cnf
+
+Definimos una variable de ambiente 
+
+export OPENSSL_CONF=/home/jorge/myCA/caconfig.cnf
+
+Creamos el CA certificado y su correspondiente llave privada
+
+openssl req -x509 -newkey rsa:2048 -out cacert.pem -outform PEM -days 365
+
+Cuando nos pregunte el Password usamos nuestro password generico "sesamo"
+
+ls -l private/cakey.pem 
+
+Mostramos el contenido de la llave privada 
+
+openssl rsa -in  private/cakey.pem -text
+
+Y verificamos que este OK
+
+openssl rsa -modulus -noout -in  private/cakey.pem 
+
+openssl rsa -modulus -noout -in  private/cakey.pem |openssl md5
+
+openssl rsa -check -noout -in  private/cakey.pem 
+
+ls -l
+
+Creamos un .crt a partir de un .pem
+
+openssl x509 -in  cacert.pem -out cacert.crt
+
+Creamos otro archivo de configuración (del host)
+
+vi myhost.cnf
+
+export OPENSSL_CONF=/home/jorge/myCA/myhost.cnf
+
+Creamos la llave privada y la publica en un CSR (Certificate Signing Request )
+
+openssl req  -newkey rsa:2048 -keyout myhost.pem -keyform PEM -out myhostreq.pem -outform PEM
+
+ls -l
+
+Volvemos a la configuración de CA
+
+export OPENSSL_CONF=/home/jorge/myCA/caconfig.cnf
+
+Firmamos el certificado 
+
+openssl ca -in myhostreq.pem -out myhost_crt.pem 
+
+Revisamos el repositorio 
+
+ls -l
+
+cat index.txt
+
+cat serial
+
+ls -ltr
+
+Revisamos el certificado firmado
+
+openssl x509 -in myhost_crt.pem -text
+
+Y procedemos a guardarlo 
+
+cd ..	
+
+mkdir myCert
+
+cd myCert/
+
+mv ../myCA/myhost.pem .
+
+mv ../myCA/myhostreq.pem .
+
+mv ../myCA/myhost_crt.pem .
+
+cd ..
+
+cd myCA/
+
+DONE
