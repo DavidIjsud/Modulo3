@@ -1,0 +1,550 @@
+    1  clear
+    2  apt update
+    3  apt upgrade 
+    4  jorge_gallardo.com 
+    5  clear
+    6  hostnamectl 
+    7  hostnamectl set jorge_gallardo.com
+    8  hostnamectl help
+    9  clear
+   10  hostnamectl set-hostname jorge_gallardo.com
+   11  hostnamectl 
+   12  cd /etc/
+   13  clear
+   14  cd  default/
+   15  ls -l
+   16  vi named 
+   17  systemctl status named
+   18  systemctl restart named
+   19  systemctl status named
+   20  clar
+   21  clear
+   22  cd /etc/bind/
+   23  ls -l
+   24  clear
+   25  vim named.conf
+   26  vim named.conf.options 
+   27  apt install vim 
+   28  vim named.conf.options 
+   29  ip a
+   30  vim named.conf.options 
+   31  vim named.conf.local 
+   32  vim zones.rfc1918 
+   33  vim named.conf.local 
+   34  vim /etc/bind/zones/db.jorge_gallardo.com
+   35  ls -l
+   36  mkdir zones
+   37  vim /etc/bind/zones/db.jorge_gallardo.com
+   38  ip a
+   39  vim /etc/bind/zones/db.jorge_gallardo.com
+   40  vim  /etc/bind/zones/db.172.29
+   41  clear
+   42  ls -l
+   43  cat named.conf.local
+   44  vim /etc/bind/zones/db.jorge_gallardo.com
+   45  cat named.conf.local
+   46  vim named.conf.local
+   47  vim /etc/bind/zones/db.172.29
+   48  sudo named-checkconf
+   49  sudo named-checkzone jorge_gallardo.com /etc/bind/zones/db.jorge_gallardo.com 
+   50  sudo named-check-names
+   51  sudo check-names
+   52  vim /etc/bind/zones/db.jorge_gallardo.com
+   53  sudo named-checkzone jorge_gallardo.com /etc/bind/zones/db.jorge_gallardo.com 
+   54  hostnamectl 
+   55  hostnamectl set-hostname server01.jorgegallardo.com
+   56  cd /etc/bind
+   57  ls -l
+   58  vim named.conf.options 
+   59  vim named.conf.local 
+   60  cd zones/
+   61  ls -l
+   62  mv db.jorge_gallardo.com db.jorgegallardo.com 
+   63  vim db.jorgegallardo.com 
+   64  sudo named-checkzone jorge_gallardo.com /etc/bind/zones/db.jorge_gallardo.com 
+   65  sudo named-checkzone jorge_gallardo.com /etc/bind/zones/db.jorgegallardo.com 
+   66  sudo named-checkzone jorgegallardo.com /etc/bind/zones/db.jorgegallardo.com 
+   67  vim db.172.29 
+   68  sudo named-checkzone 172.29.in-addr.arpa /etc/bind/zones/db.172.29 
+   69  systemctl restart named
+   70  dig
+   71  dig @172.29.3.165
+   72  dig @172.29.3.165 ns1.jorgegallardo.com
+   73  dig
+   74  dig @172.29.3.165 ns1.jorgegallardo.com
+   75  ss  -lntu
+   76  ss  -lnt
+   77  ss  -lntp
+   78  ss  -lntp |less
+   79  cd /etc/netplan/
+   80  ls -l
+   81  vim /etc/netplan/00-private-nameservers.yaml
+   82  ip a
+   83  vim /etc/netplan/00-private-nameservers.yaml
+   84  netplan try
+   85  vim /etc/netplan/00-private-nameservers.yaml
+   86  netplan try
+   87  cat /etc/resolv.conf 
+   88  dig
+   89  systemd-resolve 
+   90  systemd-resolve  -help
+   91  systemd-resolve  -status
+   92  systemd-resolve  --status
+   93  reboot 
+   94  vim /etc/bind/zones/db.jorgegallardo.com 
+   95  cd /etc/bind/
+   96  cd zones/
+   97  vim db.172.29 
+   98  systemctl restart named
+   99  dig PTR 166.114.10.40
+  100  dig PTR 166.114.40.10
+  101  dig PTR 8.8.8.8
+  102  dig @8.8.8.8 PTR 8.8.8.8
+  103  dig -x @8.8.8.8  8.8.8.8
+  104  dig -x 151.101.1.69
+  105  dig @8.8.8.8  -x 151.101.1.69
+  106  nslookup -type=PTR 172.217.3.174
+  107  nslookup -type=PTR 166.114.10.40
+  108  nslookup -type=PTR 166.114.40.10
+  109  nslookup -type=PTR 166.114.10.40
+  110  dig MX agetic.gob.bo
+  111  dig smtp.agetic.gob.bo
+  112  nslookup -type=PTR 186.121.243.146
+  113  dig -x 186.121.243.146
+  114  cd /etc/nginx/sites-available/
+  115  ls -l
+  116  vim jorgegallardo.com 
+  117  nginx -t
+  118  vim /etc/nginx/snippets/ssl-params.conf 
+  119  nginx -t
+  120  ls -l
+  121  cd ..
+  122  cd snippets/
+  123  ls -l
+  124  cat ssl-params.conf 
+  125  cat jorgegallardo.conf 
+  126  vim  jorgegallardo.conf 
+  127  cat ssl-params.conf 
+  128  nginx -t
+  129  clear
+  130  cd /root
+  131  ls -l
+  132  cd myCA/
+  133  ls -l
+  134  vim caconfig.cnf 
+  135  find/ | grep  caconfig 
+  136  find / | grep  caconfig 
+  137  find / | grep  openssl.cnf  
+  138  vim /etc/ssl/openssl.cnf
+  139  vim caconfig.cnf 
+  140  ls -l
+  141  cd private/
+  142  ls -l
+  143  rm cakey.pem 
+  144  cd ..
+  145  ls -l
+  146  vim index.txt
+  147  vim serial
+  148  rm cacert.*
+  149  ls -l
+  150  rm index.txt.attr 
+  151  rm index.txt.old 
+  152  ls -l
+  153  rm jorgegallardo.pem 
+  154  rm jorgegallardo_crt.pem 
+  155  ls -l
+  156  rm reqjorgegallardo.pem 
+  157  ls -l
+  158  rm serial.old 
+  159  ls -l
+  160  cd signedcerts/
+  161  ls -l
+  162  rm 01.pem 
+  163  cd ..
+  164  ls -l
+  165  openssl x509 -in  cacert.pem -out cacert.crt
+  166  cd /etc/ssl/certs/
+  167  ls -ltr
+  168  rm completojorgegallardo.crt 
+  169  cp /root/certs/jorgegallardo.crt .
+  170  ls -l
+  171  ls -ltre
+  172  ls -ltr
+  173  cd ..
+  174  cd private/
+  175  ls -l
+  176  rm jorgegallardo.key 
+  177  cp /root/certs/jorgegallardo.key .
+  178  ls -l
+  179  cd ..
+  180  cd nginx/
+  181  cd snippets/
+  182  vim jorgegallardo.conf 
+  183  nginx -t
+  184  ls -l /etc/nginx
+  185  top
+  186  ls -l /root/myCA/
+  187  cd /root/myCA/
+  188  vi caconfig.cnf 
+  189  nginx -t
+  190  systemctl status nginx
+  191  systemctl restart nginx
+  192  history 
+  193  vim jorgegallardo.cnf 
+  194  vim /etc/nginx/snippets/jorgegallardo.conf 
+  195  vim /etc/nginx/snippets/ssl-params.conf 
+  196  cd ..
+  197  cd /etc/nginx/
+  198  vim sites-available/jorgegallardo.com 
+  199  cat snippets/jorgegallardo.conf 
+  200  nginx -t
+  201  vim sites-available/jorgegallardo.com 
+  202  nginx -t
+  203  cd /etc/bind/
+  204  ls -l
+  205  vim named.conf
+  206  vim named.conf.options 
+  207  ls -l zones
+  208  systemctl restart named
+  209  dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE jorgegallardo.com
+  210  ls -l
+  211  vi Kjorgegallardo.com.+007+11870.*
+  212  dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE jorgegallardo.com
+  213  ls -l
+  214  for key in `ls Kexample.com*.key`; do echo "\$INCLUDE $key">> example.com.zone
+  215  mb Kjorgegallardo.com.+007+* zones
+  216  mv Kjorgegallardo.com.+007+* zones
+  217  xs zones
+  218  cd zones
+  219  ls -l
+  220  for key in `ls Kexample.com*.key`; do echo "\$INCLUDE $key">> db.jorgegallardo.com ; done
+  221  for key in `ls Kjorgegallardo.com*.key`; do echo "\$INCLUDE $key">> db.jorgegallardo.com ; done
+  222  vim db.jorgegallardo.com 
+  223  dnssec-signzone -A -3 $(head -c 1000 /dev/random | sha1sum | cut -b 1-16) -N INCREMENT -o jorgegallardo.com -t db.jorgegallardo.com 
+  224  ls -l
+  225  cat db.jorgegallardo.com 
+  226  systemctl restart named
+  227  cat db.jorgegallardo.com 
+  228  head -c 1000 /dev/random | sha1sum | cut -b 1-16
+  229  head -c 10 /dev/random | sha1sum | cut -b 1-16
+  230  head /dev/random 
+  231  head /dev/urandom 
+  232  head -c 1000 /dev/urandom | sha1sum | cut -b 1-16
+  233  dnssec-signzone -A -3 $(head -c 1000 /dev/urandom | sha1sum | cut -b 1-16) -N INCREMENT -o jorgegallardo.com -t db.jorgegallardo.com 
+  234  ls -l
+  235  cat db.jorgegallardo.com.signed 
+  236  vim  db.jorgegallardo.com.signed 
+  237  cd ..
+  238  ls -l
+  239  vim named.conf.local 
+  240  systemctl restart named
+  241  dig DNSKEY example.com. @localhost +multiline
+  242  dig DNSKEY jorgegallardo.com. @localhost +multiline
+  243  dig DNSKEY jorgegallardo.com.  +multiline
+  244  dig DNSKEY jorgegallardo.com  +multiline
+  245  dig  jorgegallardo.com  +multiline
+  246  dig  www.jorgegallardo.com  +multiline
+  247  dig DNSKEY jorgegallardo.com. @172.29.3.168 +multiline
+  248  ip a
+  249  dig DNSKEY jorgegallardo.com. @172.29.3.165 +multiline
+  250  dig A www.jorgegallardo.com. @172.29.3.165 +noadditional +dnssec +multiline
+  251  cd zones/
+  252  ls -l
+  253  cat dsset-jorgegallardo.com. 
+  254  history 
+  255  vim db.jorgegallardo.com
+  256  ls -l
+  257  vi db.jorgegallardo.com
+  258  vi ../named.conf.local 
+  259  vi db.jorgegallardo.com.signed 
+  260  ls -l
+  261  dig DNSKEY jorgegallardo.com. @172.29.3.168 +multiline
+  262  dig DNSKEY jorgegallardo.com. @172.29.3.165 +multiline
+  263  clear
+  264  dig DNSKEY jorgegallardo.com. @172.29.3.165 +multiline
+  265  history 
+  266  dig A www.jorgegallardo.com. @172.29.3.165 +noadditional +dnssec +multiline
+  267  dig @172.29.3.168 . DNSKEY | grep -Ev '^($|;)' 
+  268  dig @172.29.3.165
+  269  dig @172.29.3.165 DNSKEY .
+  270  dig @172.29.3.165 DNSKEY .  | grep -Ev '^($|;)' 
+  271  dig @172.29.3.165 DNSKEY .  | grep -Ev '^($|;)' >root.keys
+  272  dig +sigchase +trusted-key=./root.keys www.jorgegallardo.com. A 
+  273  clear
+  274  dig +sigchase +trusted-key=./root.keys www.jorgegallardo.com. A 
+  275  dig +sigchase +trusted-key=./root.keys www.jorgegallardo.com. A |cat -n 
+  276  cat root.keys 
+  277  dig +sigchase +trusted-key=./root.keys wlww.jorgegallardo.com. A |cat -n 
+  278  dig @172.29.3.165 +sigchase +trusted-key=./root.keys www.jorgegallardo.com. A |cat -n 
+  279  clear
+  280  dig @172.29.3.165 +sigchase +trusted-key=./root.keys www.jorgegallardo.com. A |cat -n 
+  281  delv
+  282  delv @172.29.3.165 
+  283  delv @172.29.3.165 man delv 
+  284  man delv
+  285  delv @172.29.3.165 jorgegallardo.com 
+  286  delv @172.29.3.165 www.jorgegallardo.com 
+  287  clear
+  288  delv @172.29.3.165 www.jorgegallardo.com 
+  289  man delv
+  290  delv @172.29.3.165 -a root.keys www.jorgegallardo.com 
+  291  delv -a ./root.keys  @172.29.3.165  www.jorgegallardo.com 
+  292  vi /etc/bind/bind.keys 
+  293  delv -a ./root.keys  @172.29.3.165  www.jorgegallardo.com  +rtrace
+  294  delv  @172.29.3.165  www.jorgegallardo.com  +rtrace
+  295  ls -l
+  296  rm root.keys 
+  297  ls -l
+  298  clear
+  299  ls -l
+  300  cd 
+  301  ls -l
+  302  mkdir myCA
+  303  mkdir -p myCA/signedcerts
+  304  mkdir -p myCA/private
+  305  cd myCA/
+  306  echo '01' > serial
+  307  touch index.txt
+  308  vim caconfig.cnf
+  309  export OPENSSL_CONF=/root/myCA/caconfig.cnf
+  310  openssl req -x509 -newkey rsa:2048 -out cacert.pem -outform PEM 
+  311  vim caconfig.cnf 
+  312  openssl req -x509 -newkey rsa:2048 -out cacert.pem -outform PEM 
+  313  ls -l
+  314  ls -l private/
+  315  openssl x509 -in  cacert.pem -out cacert.crt
+  316  vi myhost.cnf
+  317  vi jorgegallardo.cnf
+  318  export OPENSSL_CONF=/root/myCA/jorgegallardo.cnf 
+  319  openssl req  -newkey rsa:2048 -keyout jorgegallardo.pem -keyform PEM -out reqjorgegallardo.pem -outform PEM
+  320  ls -l
+  321  export OPENSSL_CONF=/root/myCA/caconfig.cnf
+  322  openssl ca -in reqjorgegallardo.pem  -out jorgegallardo_crt.pem
+  323  ls -l
+  324  cd ..
+  325  mkdir certs
+  326  cp myCA/jorgegallardo_crt.pem certs/
+  327  cp myCA/jorgegallardo.pem certs/
+  328  cat myCA/cacert.crt  myCA/jorgegallardo_crt.pem certs/completojorgegallardo.crt 
+  329  cat myCA/cacert.crt  myCA/jorgegallardo_crt.pem > certs/completojorgegallardo.crt 
+  330  vim certs/completojorgegallardo.crt 
+  331  apt install nginx
+  332  ls -l
+  333  cd /etc/nginx/
+  334  ls -l
+  335  ip a
+  336  ls -l
+  337  cd snippets/
+  338  ls -l
+  339  vi self-signed.conf
+  340  cd
+  341  cd certs/
+  342  ls -l
+  343  openssl rsa -in jorgegallardo.pem -out jorgegallardo.key
+  344  ls -l
+  345  cat jorgegallardo.key 
+  346  cat jorgegallardo.pem 
+  347  cd /etc/ssl
+  348  ls -l
+  349  cd certs/
+  350  ls -l
+  351  cp /root/certs/completojorgegallardo.crt .
+  352  cd ..
+  353  cd private/
+  354  ls -l
+  355  cp /root/certs/jorgegallardo.key .
+  356  ls -l
+  357  cd /etc/nginx/snippets/
+  358  ls -l
+  359  vim snakeoil.conf 
+  360  ls -l
+  361  rm self-signed.conf 
+  362  cp snakeoil.conf jorgegallardo.conf
+  363  vim jorgegallardo.conf 
+  364  ls -l /etc/ssl/certs/completojorgegallardo.crt 
+  365  cat  /etc/ssl/certs/completojorgegallardo.crt 
+  366  cat  /etc/ssl/certs/02265526.0 
+  367  cat  /etc/ssl/certs/completojorgegallardo.crt 
+  368  vim jorgegallardo.conf 
+  369  ls -l
+  370  ps -ef
+  371  cd..
+  372  ls -l
+  373  cd ..
+  374  ls -l
+  375  cd sites-available/
+  376  ls -l
+  377  ca default 
+  378  cat default 
+  379  q
+  380  sudo cp /etc/nginx/sites-available/your_domain /etc/nginx/sites-available/your_domain.bak
+  381  vim jorgegallardo.com
+  382  cd ..
+  383  ls -l
+  384  cd snippets/
+  385  ls -l
+  386  vim ssl-params.conf
+  387  ip a
+  388  vim ssl-params.conf
+  389  ls -l
+  390  cd /var/www/
+  391  ls -l
+  392  mkdir jorgegallardo.com
+  393  cd jorgegallardo.com/
+  394  ls -l
+  395  cp -a ../html .
+  396  ls -l
+  397  cd html/
+  398  ls -l
+  399  vim index.nginx-debian.html 
+  400  cd /etc/nginx/
+  401  ls -l
+  402  cd sites-enabled/
+  403  ls -l
+  404  ln -s /etc/nginx/sites-available/jorgegallardo.com 
+  405  ls -l
+  406  vim jorgegallardo.com 
+  407  cd /root/myCA/
+  408  export OPENSSL_CONF=/root/myCA/caconfig.cnf
+  409  history 
+  410  openssl req -x509 -newkey rsa:4096 -out cacert.pem -outform PE
+  411  openssl req -x509 -newkey rsa:4096 -out cacert.pem -outform PEM
+  412  ls -l private/
+  413  ls -l
+  414  export OPENSSL_CONF=/root/myCA/jorgegallardo.cnf 
+  415  vi jorgegallardo.cnf 
+  416  history 
+  417  export OPENSSL_CONF=/root/myCA/jorgegallardo.cnf 
+  418  openssl req  -newkey rsa:2048 -keyout jorgegallardo.pem -keyform PEM -out reqjorgegallardo.pem -outform PEM
+  419  ls -l
+  420  openssl req  -newkey rsa:4096 -keyout jorgegallardo.pem -keyform PEM -out reqjorgegallardo.pem -outform PEM
+  421  ls -ltr
+  422  export OPENSSL_CONF=/root/myCA/caconfig.cnf
+  423  history 
+  424  openssl ca -in reqjorgegallardo.pem  -out jorgegallardo_crt.pem
+  425  ls -l
+  426  openssl rsa -in jorgegallardo.pem -out jorgegallardo.key
+  427  cd ..
+  428  cd certs/
+  429  ls -l
+  430  rm jorgegallardo*
+  431  rm completojorgegallardo.crt 
+  432  cat ../myCA/cacert.crt ../myCA/jorgegallardo_crt.pem > jorgegallardo.crt
+  433  cim jorgegallardo.crt 
+  434  vim jorgegallardo.crt 
+  435  cp ../myCA/jorgegallardo.key .
+  436  ls -l
+  437  openssl x509 -noout -text -in jorgegallardo.crt
+  438  vim jorgegallardo.crt 
+  439  openssl x509 -noout -text -in jorgegallardo.crt
+  440  cp  jorgegallardo.crt /etc/ssl/certs/
+  441  cd /etc/nginx/
+  442  openssl dhparam -out dhparam.pem 4096
+  443  ls -l
+  444  history 
+  445  :q
+  446  cat /etc/hosts
+  447  cd /var/www/
+  448  ls -l
+  449  vim /var/www/jorgegallardo.com/html/index.nginx-debian.html 
+  450  clear
+  451  cd 
+  452  cd /etc/netplan/
+  453  ls -l
+  454  vim 00-private-nameservers.yaml 
+  455  vim 00-installer-config.yaml 
+  456  vim 00-private-nameservers.yaml 
+  457  cd /root/
+  458  ls -l
+  459  cd myCA/
+  460  ls -l
+  461  vim jorgegallardo_crt.pem
+  462  vim cacert.pem
+  463  openssl X509 -in jorgegallardo_crt.pem -out jorgegallardo.crt 
+  464  openssl x509 -in jorgegallardo_crt.pem -out jorgegallardo.crt 
+  465  vim jorgegallardo.crt 
+  466  vim jorgegallardo_crt.pem 
+  467  vim jorgegallardo.crt 
+  468  vim /etc/ssl/certs/jorgegallardo.crt 
+  469  vim jorgegallardo.crt 
+  470  cd /etc/bind/
+  471  ls -l
+  472  vim bind.keys
+  473  vim rndc.key
+  474  cd zones/
+  475  ls -l
+  476  vim Kjorgegallardo.com.+007+11870.key
+  477  vim Kjorgegallardo.com.+007+11870.private
+  478  vim Kjorgegallardo.com.+007+60408.key
+  479  vim Kjorgegallardo.com.+007+11870.key
+  480  cat dsset-jorgegallardo.com
+  481  cat dsset-jorgegallardo.com. 
+  482  vim db.jorgegallardo.com.signed
+  483  vim db.jorgegallardo.com
+  484  vim db.jorgegallardo.com.signed
+  485  man dnssec-signzone 
+  486  cd /root/myCA/
+  487  ls -l
+  488  vim cacert.crt
+  489  vim jorgegallardo_crt.pem
+  490  vim jorgegallardo.crt 
+  491  cat jorgegallardo.crt cacert.pem 
+  492  vim jorgegallardo.crt 
+  493  cat jorgegallardo.crt cacert.pem 
+  494  cat jorgegallardo.crt cacert.crt
+  495  cd /etc/nginx/
+  496  ls -l
+  497  cat /proc/cpuinfo 
+  498  ls -l 
+  499  vim dhparam.pem
+  500  cd snippets
+  501  ls -l
+  502  vim snakeoil.conf
+  503  vim jorgegallardo.conf 
+  504  vim ssl-params.conf
+  505  nginx -t
+  506  ls -l
+  507  cd ..
+  508  cd sites-available/
+  509  ls -l
+  510  vim default 
+  511  vim jorgegallardo.com 
+  512  cd /var/www/
+  513  ls -l
+  514  cd jorgegallardo.com/
+  515  ls -l
+  516  cd html/
+  517  ls -l
+  518  vim index.nginx-debian.html 
+  519  cd /root/myCA/
+  520  ls -l
+  521  cdim caconfig.cnf 
+  522  vim caconfig.cnf 
+  523  ls -l
+  524  vim jorgegallardo.cnf
+  525  vim /etc/nginx/dhparam.pem 
+  526  dig @172.29.3.165
+  527  dig @172.29.3.165 DNSKEY .
+  528  delv
+  529  delv scip.ch
+  530  delv @1.1.1.1 scip.ch
+  531  clear
+  532  delv @1.1.1.1 scip.ch
+  533  delv @1.1.1.1 google.com
+  534  delv @8.8.8.8 google.com
+  535  dig NS  google.com
+  536  dig  ns1.google.com
+  537  delv @216.239.32.10 google.com
+  538  dig  @216.239.32.10 google.com
+  539  delv @216.239.32.10 google.com
+  540  delv @216.239.32.10 microsoft.com
+  541  delv @1.1.1.1 microsoft.com
+  542  wget https://www.jorgegallardo.com
+  543  wget --no-check-certificate https://www.jorgegallardo.com
+  544  vim index.html 
+  545  wget --no-check-certificate https://www.jorgegallardo.com
+  546  wget https://www.jorgegallardo.com
+  547  history 
+  548  cd /
+  549  cd /tmp/
+  550  history > history-03-9-22.txt
